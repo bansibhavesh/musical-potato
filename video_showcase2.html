@@ -4,6 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Local Video Showcase</title>
+<style>
+  /* Style for the full-screen button */
+  .fullscreen-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+</style>
 </head>
 <body>
 
@@ -11,11 +24,32 @@
 
 <p>Check out our amazing video:</p>
 
-<video width="560" height="315" controls>
-  <!-- Use the file path to your local video -->
-  <source src="file:///C:/Users/bansi/OneDrive/Desktop/rickroll.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<!-- Video container -->
+<div id="video-container">
+  <video id="video" width="560" height="315" controls autoplay>
+    <!-- Use the relative path to your video file -->
+    <source src="rickroll.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <!-- Full-screen button -->
+  <button class="fullscreen-btn" onclick="toggleFullscreen()">Full-Screen</button>
+</div>
+
+<script>
+  // Function to toggle full-screen mode
+  function toggleFullscreen() {
+    var video = document.getElementById("video-container");
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if (video.mozRequestFullScreen) { /* Firefox */
+      video.mozRequestFullScreen();
+    } else if (video.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+      video.webkitRequestFullscreen();
+    } else if (video.msRequestFullscreen) { /* IE/Edge */
+      video.msRequestFullscreen();
+    }
+  }
+</script>
 
 </body>
 </html>
