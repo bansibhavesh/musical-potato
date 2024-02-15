@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouTube Video Showcase</title>
+</head>
+<body>
+
+<h1>Check out our amazing video!</h1>
+
+<p>Click the link below:</p>
+
+<!-- Replace 'video_page.html' with the actual filename you save your video page as -->
+<a href="video_page.html">Watch Video</a>
+
+</body>
+</html>
