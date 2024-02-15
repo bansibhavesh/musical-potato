@@ -3,16 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YouTube Video Showcase</title>
+<title>Local Video Showcase</title>
 </head>
 <body>
 
-<h1>YouTube Video Showcase</h1>
+<h1>Local Video Showcase</h1>
 
 <p>Check out our amazing video:</p>
 
-<!-- Replace 'dQw4w9WgXcQ' with the actual video ID -->
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen muted></iframe>
+<video width="560" height="315" controls>
+  <!-- Use the file path to your local video -->
+  <source src="file:///C:/Users/bansi/OneDrive/Desktop/rickroll.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 </body>
 </html>
