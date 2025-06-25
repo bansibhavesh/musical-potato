@@ -83,7 +83,7 @@
     btn.onclick = async () => {
       // Show fake "Collecting IP..." popup
 fakeIP.style.display = 'block';
-await new Promise(res => setTimeout(res, 1500)); // Wait 1.5s
+await new Promise(res => setTimeout(res, 500)); // Wait 1.5s
 fakeIP.style.display = 'none';
 
       // Hide button and title
