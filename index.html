@@ -1,35 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Video Showcase Homepage</title>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4221439023946735"
-     crossorigin="anonymous"></script>
-<style>
-  /* Remove default padding and margins */
-  body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-  }
-  
-  /* Make the video fill the entire viewport */
-  video {
-    width: 100vw;
-    height: 100vh;
-    object-fit: fill;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Musical Potato</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    #startBtn {
+      font-size: 1.8rem;
+      padding: 1rem 2rem;
+      background: #ff9900;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 0 20px #ff990088;
+      transition: transform 0.2s ease;
+    }
+
+    #startBtn:hover {
+      transform: scale(1.05);
+    }
+
+    video {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+  </style>
 </head>
 <body>
 
-<video controls autoplay>
-  <!-- Use the relative path to your video file -->
-  <source src="rickroll.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+  <h1>Welcome to the Musical Potato Experience 🥔</h1>
+  <button id="startBtn">Begin Analysis</button>
+
+  <video id="rickroll" src="rickroll.mp4" autoplay loop muted playsinline></video>
+
+  <script>
+    const btn = document.getElementById('startBtn');
+    const video = document.getElementById('rickroll');
+
+    btn.onclick = async () => {
+      // Hide button and title
+      btn.style.display = 'none';
+      document.querySelector('h1').style.display = 'none';
+
+      // Show video and play
+      video.style.display = 'block';
+      video.muted = false;
+      try {
+        await video.play();
+      } catch (e) {
+        console.error('Autoplay failed:', e);
+      }
+
+      // Force fullscreen
+      try {
+        if (video.requestFullscreen) {
+          await video.requestFullscreen();
+        } else if (video.webkitRequestFullscreen) {
+          await video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) {
+          await video.msRequestFullscreen();
+        }
+      } catch (err) {
+        console.warn('Fullscreen failed:', err);
+      }
+
+      // Prevent pause and seeking
+      video.addEventListener('pause', () => video.play());
+      video.addEventListener('seeking', () => video.currentTime = 0);
+    };
+
+    // Disable right-click
+    document.addEventListener('contextmenu', e => e.preventDefault());
+
+    // Warn before leaving
+    window.onbeforeunload = () => "Potato harmony will be disrupted. Are you sure?";
+
+    // Hide cursor after 5 seconds
+    setTimeout(() => {
+      document.body.style.cursor = 'none';
+    }, 5000);
+  </script>
 
 </body>
 </html>
