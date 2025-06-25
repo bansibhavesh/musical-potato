@@ -28,21 +28,23 @@
       overflow: hidden;
     }
 
-    #startBtn {
-      font-size: 1.8rem;
-      padding: 1rem 2rem;
-      background: #ff9900;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 0 0 20px #ff990088;
-      transition: transform 0.2s ease;
-    }
+  #startBtn {
+  font-size: 1.8rem;
+  padding: 1rem 2rem;
+  background: black;
+  color: white;
+  border: 2px solid white;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 10px white, 0 0 20px white, 0 0 40px white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-    #startBtn:hover {
-      transform: scale(1.05);
-    }
-
+#startBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px white, 0 0 30px white, 0 0 60px white;
+}
+    
     video {
       display: none;
       width: 100vw;
